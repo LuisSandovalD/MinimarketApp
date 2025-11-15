@@ -7,7 +7,8 @@ import ConfirmDialog from "@/components/common/modals/ConfirmDialog";
 import CategoryFilters from "../../../components/features/categories/components/CategoryFilters";
 import CategoryList from "../../../components/features/categories/components/CategoryList";
 import useCategories from "../../../components/features/categories/hooks/useCategories";
-
+import CategoryHeader from "../../../components/features/categories/components/CategoryHeader";
+import CategoryStatus from "../../../components/features/categories/components/CategoryStatus";
 export default function Categories() {
   const {
     filtered,
@@ -28,7 +29,6 @@ export default function Categories() {
     handleSubmit,
     handleDelete,
     resetForm,
-    showToast,
     goToPage,
     changeItemsPerPage,
     setSearch,
@@ -104,71 +104,14 @@ export default function Categories() {
       <div className="flex-1 p-4 sm:p-6 lg:p-8 ml-0 lg:ml-72 transition-all duration-300">
         {/* Header + estadísticas */}
         <div className="mb-8">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-3 rounded-xl shadow-lg">
-                <Package className="text-white" size={24} />
-              </div>
-              <div>
-                <h2 className="text-3xl font-bold text-slate-800 flex items-center gap-3">
-                  Categorías
-                </h2>
-                <p className="text-slate-500 mt-1">
-                  Administra las categorías de productos
-                </p>
-              </div>
-            </div>
 
-            <button
-              onClick={() => {
-                resetForm();
-                setShowModal(true);
-              }}
-              className="flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-lg hover:bg-blue-700 active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg font-medium"
-            >
-              <PlusCircle size={20} />
-              Nueva Categoría
-            </button>
-          </div>
-
-          {/* Estadísticas */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-500 font-medium">Total</p>
-                  <p className="text-2xl font-bold text-slate-800 mt-1">{stats.total}</p>
-                </div>
-                <div className="bg-blue-100 p-3 rounded-lg">
-                  <Package className="text-blue-600" size={24} />
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-500 font-medium">Activas</p>
-                  <p className="text-2xl font-bold text-green-600 mt-1">{stats.active}</p>
-                </div>
-                <div className="bg-green-100 p-3 rounded-lg">
-                  <CheckCircle className="text-green-600" size={24} />
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-500 font-medium">Inactivas</p>
-                  <p className="text-2xl font-bold text-orange-600 mt-1">{stats.inactive}</p>
-                </div>
-                <div className="bg-orange-100 p-3 rounded-lg">
-                  <XCircle className="text-orange-600" size={24} />
-                </div>
-              </div>
-            </div>
-          </div>
+         <CategoryHeader
+            resetForm={resetForm}
+            setShowModal={setShowModal}
+          />
+          <CategoryStatus 
+            stats = {stats}
+          />
         </div>
 
         {/* Filtros */}

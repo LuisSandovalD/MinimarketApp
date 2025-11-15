@@ -1,4 +1,6 @@
 import { FileText, Download } from "lucide-react";
+import { FullscreenButton } from "../../../common/buttons";
+
 
 export const ShoppingDetailHeader = ({ onExport }) => {
   return (
@@ -15,13 +17,17 @@ export const ShoppingDetailHeader = ({ onExport }) => {
         </div>
       </div>
       
-      <button
-        onClick={onExport}
-        className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all"
-      >
-        <Download size={20} />
-        Exportar CSV
-      </button>
+      <div className="flex gap-3">
+        <button
+          onClick={onExport}
+          className="flex items-center gap-2 px-4 py-3 bg-white hover:bg-gray-50 border border-gray-200 text-gray-900 rounded-xl font-semibold shadow-sm hover:shadow-md transition-all"
+        >
+          <Download size={20} />
+          Exportar CSV
+        </button>
+        <FullscreenButton className="shadow" />
+      </div>
+      
     </div>
   );
 };

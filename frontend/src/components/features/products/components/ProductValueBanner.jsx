@@ -7,16 +7,17 @@ export default function ProductValueBanner({ totalValue }) {
             <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-6 bg-gradient-to-r from-sky-600 to-blue-600 text-white rounded-2xl p-6 shadow-lg"
+                className="mt-6 border border-blue-800/10 rounded-2xl p-6 shadow bg-blue-50/50"
+                delay = {0.1}
             >
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <div className="bg-white/20 p-3 rounded-xl">
+                        <div className="bg-blue-900 p-3 rounded-xl text-white">
                             <DollarSign size={24} />
                         </div>
-                        <span className="text-lg font-semibold">Valor Total del Inventario:</span>
+                        <span className="text-lg text-blue-800">Total del Inventario:</span>
                     </div>
-                    <span className="text-3xl font-bold">
+                    <span className="lg:text-3xl sm:text-1xl font-bold text-blue-800">
                         S/ {totalValue}
                     </span>
                 </div>

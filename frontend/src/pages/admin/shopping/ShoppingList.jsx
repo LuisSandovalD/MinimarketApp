@@ -10,6 +10,8 @@ import ShoppingStats from "../../../components/features/shopping/components/Shop
 import ShoppingTable from "../../../components/features/shopping/components/ShoppingTable";
 import ShoppingEmpty from "../../../components/features/shopping/components/ShoppingEmpty";
 import ShoppingError from "../../../components/features/shopping/components/ShoppingError";
+import {FullscreenButton} from "@/components/common/buttons";
+
 
 const ShoppingList = () => {
   const shoppingHook = useShopping();
@@ -46,7 +48,7 @@ const ShoppingList = () => {
   if (error) return <ShoppingError error={error} />;
 
   return (
-    <div className="flex bg-gradient-to-br from-slate-50 to-gray-100 min-h-screen">
+    <div className="flex min-h-screen">
       <div className="flex-1 ml-0 lg:ml-72 transition-all duration-300">
         <NavBarAdmin />
         <main className="p-6">

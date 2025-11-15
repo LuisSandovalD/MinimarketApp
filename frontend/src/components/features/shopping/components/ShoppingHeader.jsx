@@ -1,4 +1,5 @@
 import { Plus } from "lucide-react";
+import { FullscreenButton } from "../../../common/buttons";
 
 export default function ShoppingHeader({onOpenModal}) {
     return (
@@ -16,6 +17,7 @@ export default function ShoppingHeader({onOpenModal}) {
                     <Plus size={20} />
                     Nueva Compra
                 </button>
+                <FullscreenButton className="shadow" />
             </div>
         </div>
     );

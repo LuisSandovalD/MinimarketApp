@@ -21,34 +21,81 @@ const calculateDateRange = (preset) => {
         case 'today':
             start = end = formatDateInternal(today);
             break;
+
         case 'yesterday':
             const yesterday = new Date(today);
             yesterday.setDate(yesterday.getDate() - 1);
             start = end = formatDateInternal(yesterday);
             break;
-        case 'last7days':
-            start = formatDateInternal(new Date(today.setDate(today.getDate() - 6)));
+
+        case 'last7days': {
+            const startDate = new Date();
+            startDate.setDate(today.getDate() - 6);
+            start = formatDateInternal(startDate);
             end = formatDateInternal(new Date());
             break;
-        case 'last30days':
-            start = formatDateInternal(new Date(today.setDate(today.getDate() - 29)));
+        }
+
+        case 'last30days': {
+            const startDate = new Date();
+            startDate.setDate(today.getDate() - 29);
+            start = formatDateInternal(startDate);
             end = formatDateInternal(new Date());
             break;
+        }
+
         case 'thisMonth':
             start = formatDateInternal(new Date(today.getFullYear(), today.getMonth(), 1));
-            end = formatDateInternal(new Date());
+            end = formatDateInternal(today);
             break;
-        case 'lastMonth':
+
+        case 'lastMonth': {
             const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+            const lastMonthEnd = new Date(today.getFullYear(), today.getMonth(), 0);
             start = formatDateInternal(lastMonth);
-            end = formatDateInternal(new Date(today.getFullYear(), today.getMonth(), 0));
+            end = formatDateInternal(lastMonthEnd);
             break;
-        // ... (otros presets de fecha)
-        case 'last3months':
-        case 'last6months':
+        }
+
+        // *** NUEVOS PRESETS ***
+
+        case 'last3months': {
+            const startDate = new Date(today.getFullYear(), today.getMonth() - 2, 1);
+            start = formatDateInternal(startDate);
+            end = formatDateInternal(today);
+            break;
+        }
+
+        case 'last6months': {
+            const startDate = new Date(today.getFullYear(), today.getMonth() - 5, 1);
+            start = formatDateInternal(startDate);
+            end = formatDateInternal(today);
+            break;
+        }
+
         case 'thisYear':
-        case 'lastYear':
-        case 'last2years':
+            start = formatDateInternal(new Date(today.getFullYear(), 0, 1));
+            end = formatDateInternal(today);
+            break;
+
+        case 'lastYear': {
+            const year = today.getFullYear() - 1;
+            const startDate = new Date(year, 0, 1);
+            const endDate = new Date(year, 11, 31);
+            start = formatDateInternal(startDate);
+            end = formatDateInternal(endDate);
+            break;
+        }
+
+        case 'last2years': {
+            const endDate = today;
+            const startDate = new Date(today.getFullYear() - 2, today.getMonth(), today.getDate());
+            start = formatDateInternal(startDate);
+            end = formatDateInternal(endDate);
+            break;
+        }
+
+        // Si no coincide con ningún preset
         default:
             start = end = null;
     }

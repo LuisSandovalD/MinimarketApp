@@ -11,7 +11,7 @@ class CreditPaymentController extends Controller
     public function index()
     {
         try {
-            $creditPayments = CreditPayment::with(['credit', 'user'])->get();
+            $creditPayments = CreditPayment::with(['credit.sale.customer', 'user'])->get();
 
             return response()->json($creditPayments, 200);
         } catch (\Throwable $th) {

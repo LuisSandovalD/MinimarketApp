@@ -3,6 +3,7 @@
 import { LayoutDashboard, Calendar } from 'lucide-react';
 import AdminInfoPanel from "./AdminInfoPanel";
 import DateFilter from "./DateFilter";
+import { FullscreenButton } from '../../../common/buttons';
 
 export default function DashboardHeader({
     isAdmin, data, startDate, endDate, setStartDate, setEndDate,
@@ -16,10 +17,10 @@ export default function DashboardHeader({
                         <LayoutDashboard className="text-white" size={24} />
                     </div>
                     <div>
-                        <h2 className="text-3xl font-bold text-gray-900">
+                        <h2 className="font-bold text-gray-900 md:text-1xl lg:text-3xl">
                             Dashboard {isAdmin ? "Administrador" : "Cajero"}
                         </h2>
-                        <p className="text-gray-600 mt-1 flex items-center gap-2">
+                        <p className="text-gray-600 mt-1 flex items-center gap-2 text-sm">
                             <Calendar className="w-4 h-4" />
                             Período:{" "}
                             <span className="font-semibold">{formatDate(data.date_range.start)}</span> -{" "}
@@ -27,7 +28,10 @@ export default function DashboardHeader({
                         </p>
                     </div>
                 </div>
-                <AdminInfoPanel />
+                <div className='flex gap-3 justify-end w-full'>
+                    <FullscreenButton className='shadow'/>
+                    <AdminInfoPanel />
+                </div>
             </div>
 
             {/* Filtro de fechas */}

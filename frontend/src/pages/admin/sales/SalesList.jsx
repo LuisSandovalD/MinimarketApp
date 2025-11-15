@@ -108,7 +108,7 @@ const SalesList = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="min-h-screen bg-gray-50 lg:pt-0 pt-16">
+    <div className="min-h-screen">
       <NavBarAdmin />
       <div className="flex-1 lg:ml-72 p-4 sm:p-6 lg:p-8">
         <div className="mb-8">

@@ -12,6 +12,8 @@ import ProductFilterBar from "../../../components/features/products/components/P
 import ProductGrid from "../../../components/features/products/components/ProductGrid";
 import ProductListTable from "../../../components/features/products/components/ProductListTable";
 import ProductSelectionButton from "../../../components/features/products/components/ProductSelectionButton";
+import {FullscreenButton} from "@/components/common/buttons";
+
 
 export default function ProductList() {
   const {
@@ -47,7 +49,7 @@ export default function ProductList() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50 lg:pt-0 pt-0">
-      <div className="flex-1 p-8 m-0 lg:ml-72 transition-all duration-300">
+      <div className="flex-1 p-4 m-0 lg:ml-72 transition-all duration-300">
         <div className="mb-8">
           <NavBarAdmin />
           <ProductHeader products={filtered} />

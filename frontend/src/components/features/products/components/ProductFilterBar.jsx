@@ -30,7 +30,7 @@ export default function ProductFilterBar({
                     <select
                         value={filterStatus}
                         onChange={(e) => setFilterStatus(e.target.value)}
-                        className="border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-sky-200 focus:outline-none focus:border-sky-300 text-slate-700 bg-white transition-all font-medium"
+                        className="border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-sky-200 focus:outline-none focus:border-sky-300 text-slate-700 bg-white transition-all font-medium w-full"
                     >
                         <option value="all">Todos</option>
                         <option value="active">Activos</option>
@@ -38,11 +38,11 @@ export default function ProductFilterBar({
                     </select>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="grid col-grid-2 gap-4">
                     <select
                         value={sortBy}
                         onChange={(e) => setSortBy(e.target.value)}
-                        className="border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-sky-200 focus:outline-none focus:border-sky-300 text-slate-700 bg-white transition-all font-medium"
+                        className="col-1 border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-sky-200 focus:outline-none focus:border-sky-300 text-slate-700 bg-white transition-all font-medium"
                     >
                         <option value="name">Nombre</option>
                         <option value="price">Precio</option>
@@ -50,26 +50,28 @@ export default function ProductFilterBar({
                     </select>
                     <button
                         onClick={toggleSortOrder}
-                        className="border border-slate-200 rounded-xl p-3 hover:bg-sky-50 hover:border-sky-200 transition-all"
+                        className="col-2 border border-slate-200 rounded-xl p-3 hover:bg-sky-50 hover:border-sky-200 transition-all"
                         title={sortOrder === "asc" ? "Ascendente" : "Descendente"}
                     >
                         {sortOrder === "asc" ? <SortAsc className="text-slate-600" size={18} /> : <SortDesc className="text-slate-600" size={18} />}
                     </button>
                 </div>
 
-                <div className="flex border border-slate-200 rounded-xl overflow-hidden">
-                    <button
-                        onClick={() => setViewMode("grid")}
-                        className={`px-4 py-3 text-sm font-semibold transition-all ${viewMode === "grid" ? "bg-gradient-to-r from-sky-500 to-blue-500 text-white" : "bg-white text-slate-600 hover:bg-slate-50"}`}
-                    >
-                        Grid
-                    </button>
-                    <button
-                        onClick={() => setViewMode("list")}
-                        className={`px-4 py-3 text-sm font-semibold transition-all border-l border-slate-200 ${viewMode === "list" ? "bg-gradient-to-r from-sky-500 to-blue-500 text-white" : "bg-white text-slate-600 hover:bg-slate-50"}`}
-                    >
-                        Lista
-                    </button>
+                <div>
+                    <div className="grid grid-col-2 flex border border-slate-200 rounded-xl overflow-hidden w-full">
+                        <button
+                            onClick={() => setViewMode("grid")}
+                            className={`col-1 px-4 py-3 text-sm font-semibold transition-all ${viewMode === "grid" ? "bg-gradient-to-r from-sky-500 to-blue-500 text-white" : "bg-white text-slate-600 hover:bg-slate-50"}`}
+                        >
+                            Grid
+                        </button>
+                        <button
+                            onClick={() => setViewMode("list")}
+                            className={`col-2 px-4 py-3 text-sm font-semibold transition-all border-l border-slate-200 ${viewMode === "list" ? "bg-gradient-to-r from-sky-500 to-blue-500 text-white" : "bg-white text-slate-600 hover:bg-slate-50"}`}
+                        >
+                            Lista
+                        </button>
+                    </div>
                 </div>
             </div>
 

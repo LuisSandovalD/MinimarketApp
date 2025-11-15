@@ -11,6 +11,7 @@ export default function ConfirmDialog({
   return (
     <ModalBase open={open} onClose={onClose} title={title} size="sm">
       <p className="text-gray-600 mb-6">{message}</p>
+
       <div className="flex justify-end gap-2">
         <Button variant="secondary" onClick={onClose}>
           Cancelar

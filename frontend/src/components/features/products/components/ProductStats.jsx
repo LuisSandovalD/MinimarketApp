@@ -6,7 +6,7 @@ const StatCard = ({ title, value, icon: Icon, iconBg, delay }) => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: delay }}
-        className="bg-white/80 backdrop-blur-sm border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all"
+        className="rounded-2xl p-6 shadow hover:shadow-md transition-all"
     >
         <div className="flex items-center justify-between">
             <div>
@@ -25,10 +25,34 @@ const StatCard = ({ title, value, icon: Icon, iconBg, delay }) => (
 export default function ProductStats({ stats }) {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            <StatCard title="Total Productos" value={stats.total} icon={Package} iconBg="bg-sky-100 text-sky-600" delay={0.1} />
-            <StatCard title="Activos" value={stats.active} icon={() => <div className="w-4 h-4 bg-emerald-500 rounded-full" />} iconBg="bg-emerald-100" delay={0.2} />
-            <StatCard title="Inactivos" value={stats.inactive} icon={() => <div className="w-4 h-4 bg-rose-500 rounded-full" />} iconBg="bg-rose-100" delay={0.3} />
-            <StatCard title="Stock Crítico" value={stats.lowStock} icon={Box} iconBg="bg-amber-100 text-amber-600" delay={0.4} />
+            <StatCard 
+                title="Total Productos" 
+                value={stats.total} 
+                icon={Package} 
+                iconBg="bg-sky-100 text-sky-600" 
+                delay={0.1}
+                />
+            <StatCard 
+                title="Activos" 
+                value={stats.active} 
+                icon={() => <div className="w-6 h-6 bg-emerald-500 rounded-full" />} 
+                iconBg="bg-emerald-100" 
+                delay={0.2}
+                />
+            <StatCard 
+                title="Inactivos" 
+                value={stats.inactive} 
+                icon={() => <div className="w-6 h-6 bg-rose-500 rounded-full" />} 
+                iconBg="bg-rose-100" 
+                delay={0.3}
+                />
+            <StatCard 
+                title="Stock Crítico"
+                value={stats.lowStock} 
+                icon={Box} 
+                iconBg="bg-amber-100 text-amber-600" 
+                delay={0.4}
+                />
         </div>
     );
 }

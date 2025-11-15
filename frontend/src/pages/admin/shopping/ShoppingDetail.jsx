@@ -16,6 +16,8 @@ import TableView from "../../../components/features/shoppingDetail/components/vi
 import CardsView from "../../../components/features/shoppingDetail/components/views/CardsView";
 import GroupedView from "../../../components/features/shoppingDetail/components/views/GroupedView";
 import Pagination from "@/components/common/Pagination";
+import {FullscreenButton} from "@/components/common/buttons";
+
 
 const ShoppingDetail = () => {
   const [viewMode, setViewMode] = useState("grouped");
@@ -118,7 +120,7 @@ const ShoppingDetail = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="flex bg-gradient-to-br from-slate-50 to-gray-100 min-h-screen lg:p-0 pt-16">
+    <div className="flex min-h-screen">
       <div className="flex-1 ml-0 lg:ml-72 transition-all duration-300">
         <NavBarAdmin />
 

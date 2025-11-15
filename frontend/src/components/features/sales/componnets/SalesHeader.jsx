@@ -1,5 +1,7 @@
 import { Plus } from "lucide-react";
 import SalesExportMenu from "./SalesExportMenu";
+import { FullscreenButton } from "../../../common/buttons";
+
 
 export default function SalesHeader({ onNewSale, sales }) {
   return (
@@ -18,6 +20,7 @@ export default function SalesHeader({ onNewSale, sales }) {
           <Plus size={20} />
           Nueva Venta
         </button>
+        <FullscreenButton className="shadow" />
       </div>
     </div>
   );

@@ -25,13 +25,11 @@ export default function NotificationButton() {
         fetchNotifications();
     }, []);
 
-    // 🔴 CORRECCIÓN: Marcar una notificación individual como leída (solo frontend)
     const handleMarkAsRead = (notificationId) => {
         // Actualizar el estado local para eliminar la notificación inmediatamente
         setNotifications(prev => prev.filter(n => (n.id || n.key) !== notificationId));
     };
 
-    // 🔴 CORRECCIÓN: Marcar todas como leídas (solo frontend)
     const handleMarkAllRead = () => {
         if (notifications.length === 0) return;
         

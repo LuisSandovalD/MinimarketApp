@@ -13,6 +13,8 @@ import CreditsSection from "../../components/features/dashboard/componnets/Credi
 import SalesChart from "../../components/features/dashboard/componnets/SalesChart";
 import TopProducts from "../../components/features/dashboard/componnets/TopProducts";
 import TopCustomersTable from "../../components/features/dashboard/componnets/TopCustomersTable";
+import {FullscreenButton} from "@/components/common/buttons";
+
 
 export default function Dashboard() {
     const {
@@ -23,7 +25,6 @@ export default function Dashboard() {
         maxSale, maxProduct
     } = useDashboardLogic();
 
-    // 🔹 Estados de carga / error
     if (loading && !data) return <Loading />;
 
     if (error) {

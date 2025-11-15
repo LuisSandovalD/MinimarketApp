@@ -18,6 +18,7 @@ import UserStats from "@/components/features/users/componnets/UserStats";
 import UserFilters from "@/components/features/users/componnets/UserFilters";
 import UserTable from "@/components/features/users/componnets/UserTable";
 import UserToast from "@/components/features/users/componnets/UserToast";
+import {FullscreenButton} from "@/components/common/buttons";
 
 export default function UserList() {
   const {

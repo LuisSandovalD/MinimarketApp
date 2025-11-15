@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { X, Plus, Trash2, Search, CreditCard, DollarSign, Calendar, AlertCircle } from "lucide-react";
 import { createSales, updateSales, getSalesProducts } from "@/api";
-import PaymentMethodSelector from "../../pages/admin/documents/PaymentMethodSelector";
+import PaymentMethodSelector from "../features/sales/componnets/PaymentMethodSelector";
 import { getUser } from "@/api";
 import DateField from "../../components/features/sales/componnets/DateField"; // Asegúrate que este componente esté corregido
 
