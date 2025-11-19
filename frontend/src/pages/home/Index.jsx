@@ -95,7 +95,7 @@ export default function Home() {
         <div className="flex items-center space-x-3">
           <div className="w-3 h-2 bg-green-400 rounded-full animate-pulse"></div>
           <span className="text-sm font-light opacity-80">
-            Sistema bloqueado
+            Sistema de ventas
           </span>
         </div>
       </div>

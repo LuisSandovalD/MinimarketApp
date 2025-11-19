@@ -199,21 +199,6 @@ export default function Login() {
             <ErrorMessage message={error} />
             <SuccessMessage message={success} />
           </div>
-
-          {/* Pie del login */}
-          {step === 1 && (
-            <div className="mt-8 pt-6 border-t border-white/10">
-              <p className="text-center text-white/70 font-light">
-                ¿No tienes cuenta?{" "}
-                <Link
-                  to="/register"
-                  className="text-white font-medium hover:underline transition-all duration-200"
-                >
-                  Regístrate aquí
-                </Link>
-              </p>
-            </div>
-          )}
         </div>
 
         {/* Pie de seguridad */}
